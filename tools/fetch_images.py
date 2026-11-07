@@ -20,17 +20,20 @@ API = "https://commons.wikimedia.org/w/api.php"
 HEADERS = {"User-Agent": "quiz_car/1.0 (educational car quiz project)"}
 ROOT = Path(__file__).resolve().parent.parent
 THUMB_WIDTH = 1280  # Wikimedia 표준 썸네일 크기
+MIN_WIDTH = 1280   # 이보다 작은 사진은 후보에서 제외
 
 
 def _get(url, **kwargs):
     """429(요청 과다)면 기다렸다가 재시도"""
-    for attempt in range(6):
+    for attempt in range(4):
         res = requests.get(url, headers=HEADERS, timeout=60, **kwargs)
         if res.status_code != 429:
             res.raise_for_status()
             time.sleep(1)
             return res
-        wait = int(res.headers.get("Retry-After", 0)) or 5 * (attempt + 1)
+        # Retry-After가 매우 길게 오는 경우가 있어 최대 30초로 제한
+        wait = min(int(res.headers.get("Retry-After", 0)) or 5 * (attempt + 1), 30)
+        print(f"  429 → {wait}초 대기 후 재시도", flush=True)
         time.sleep(wait)
     res.raise_for_status()
 
@@ -61,6 +64,7 @@ def _imageinfo(titles):
             "page": info.get("descriptionurl"),
             "author": _strip_html(meta.get("Artist", {}).get("value")),
             "license": meta.get("LicenseShortName", {}).get("value", ""),
+            "width": info.get("width", 0),
         })
     return out
 
@@ -72,6 +76,10 @@ def _download(url, dest):
 
 
 def search(slug, query, limit):
+    folder = ROOT / "data" / "candidates" / slug
+    if (folder / "meta.json").exists():
+        print(f"[{slug}] 이미 받음, 건너뜀")
+        return
     res = _get(API, params={
         "action": "query",
         "format": "json",
@@ -84,13 +92,23 @@ def search(slug, query, limit):
     if not titles:
         print(f"[{slug}] 결과 없음")
         return
-    infos = _imageinfo(titles)
-    folder = ROOT / "data" / "candidates" / slug
-    for i, info in enumerate(infos):
-        _download(info["url"], folder / f"{i}.jpg")
-        info["local"] = f"{i}.jpg"
-    (folder / "meta.json").write_text(json.dumps(infos, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[{slug}] {len(infos)}장 저장: {folder}")
+    # 저해상도 사진은 단서로 잘라 쓰기 어렵고, 원본 서버에서 429가 잦아 제외
+    infos = [info for info in _imageinfo(titles) if info["width"] >= MIN_WIDTH]
+    saved = []
+    for info in infos:
+        name = f"{len(saved)}.jpg"
+        try:
+            _download(info["url"], folder / name)
+        except requests.RequestException as e:
+            print(f"  [{slug}] 다운로드 실패, 건너뜀: {info['title']} ({e.__class__.__name__})", flush=True)
+            continue
+        info["local"] = name
+        saved.append(info)
+    if not saved:
+        print(f"[{slug}] 받은 사진 없음")
+        return
+    (folder / "meta.json").write_text(json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[{slug}] {len(saved)}장 저장: {folder}", flush=True)
 
 
 def get(slug, file_title):
