@@ -1,0 +1,970 @@
+[
+  {
+    "id": "avante_cn7",
+    "model": "현대 아반떼 (CN7)",
+    "years": [
+      2020,
+      2023
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.48,
+            0.7,
+            0.57,
+            0.8
+          ]
+        ],
+        "file": "avante_cn7_0.jpg",
+        "source": {
+          "title": "File:2021 Hyundai Elantra Limited in Quartz White, front right.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:2021_Hyundai_Elantra_Limited_in_Quartz_White,_front_right.jpg",
+          "author": "Mr.choppers",
+          "license": "CC BY-SA 3.0"
+        }
+      },
+      {
+        "file": "avante_cn7_1.jpg",
+        "source": {
+          "title": "File:2021 Hyundai Elantra Limited in Quartz White, rear left.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:2021_Hyundai_Elantra_Limited_in_Quartz_White,_rear_left.jpg",
+          "author": "Mr.choppers",
+          "license": "CC BY-SA 3.0"
+        },
+        "blur": []
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.58,
+          0.46,
+          0.8,
+          0.64
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.44,
+          0.6,
+          0.62,
+          0.9
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 1,
+        "box": [
+          0.62,
+          0.46,
+          0.79,
+          0.62
+        ],
+        "label": "테일램프"
+      }
+    ]
+  },
+  {
+    "id": "k5_dl3",
+    "model": "기아 K5 (DL3)",
+    "years": [
+      2019,
+      2023
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.39,
+            0.64,
+            0.47,
+            0.76
+          ]
+        ],
+        "file": "k5_dl3_0.jpg",
+        "source": {
+          "title": "File:0 Kia K5 (DL3) 1.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:0_Kia_K5_(DL3)_1.jpg",
+          "author": "Benespit",
+          "license": "CC BY-SA 4.0"
+        }
+      },
+      {
+        "file": "k5_dl3_1.jpg",
+        "source": {
+          "title": "File:0 Kia K5 (DL3) 2.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:0_Kia_K5_(DL3)_2.jpg",
+          "author": "Benespit",
+          "license": "CC BY-SA 4.0"
+        },
+        "blur": [
+          [
+            0.03,
+            0.26,
+            0.14,
+            0.38
+          ]
+        ]
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.55,
+          0.49,
+          0.82,
+          0.64
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.35,
+          0.54,
+          0.52,
+          0.86
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 1,
+        "box": [
+          0.15,
+          0.31,
+          0.34,
+          0.5
+        ],
+        "label": "테일램프"
+      }
+    ]
+  },
+  {
+    "id": "grandeur_gn7",
+    "model": "현대 그랜저 (GN7)",
+    "years": [
+      2022,
+      null
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.48,
+            0.64,
+            0.56,
+            0.74
+          ]
+        ],
+        "file": "grandeur_gn7_0.jpg",
+        "source": {
+          "title": "File:00 Hyundai Grandeur (GN7).jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:00_Hyundai_Grandeur_(GN7).jpg",
+          "author": "Benespit",
+          "license": "CC BY-SA 4.0"
+        }
+      },
+      {
+        "file": "grandeur_gn7_1.jpg",
+        "source": {
+          "title": "File:0 Hyundai Grandeur (GN7) 1.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:0_Hyundai_Grandeur_(GN7)_1.jpg",
+          "author": "Benespit",
+          "license": "CC BY-SA 4.0"
+        },
+        "blur": []
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.66,
+          0.55,
+          0.95,
+          0.8
+        ],
+        "label": "헤드램프·그릴"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.43,
+          0.52,
+          0.62,
+          0.86
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 1,
+        "box": [
+          0.15,
+          0.38,
+          0.38,
+          0.56
+        ],
+        "label": "테일램프"
+      }
+    ]
+  },
+  {
+    "id": "ioniq5",
+    "model": "현대 아이오닉 5",
+    "years": [
+      2021,
+      2024
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.47,
+            0.69,
+            0.55,
+            0.8
+          ]
+        ],
+        "file": "ioniq5_0.jpg",
+        "source": {
+          "title": "File:Hyundai Ioniq 5 IAA 2021 1X7A0189.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Hyundai_Ioniq_5_IAA_2021_1X7A0189.jpg",
+          "author": "Alexander Migl",
+          "license": "CC BY-SA 4.0"
+        }
+      },
+      {
+        "file": "ioniq5_1.jpg",
+        "source": {
+          "title": "File:Hyundai Ioniq 5 N Line IMG 3869.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Hyundai_Ioniq_5_N_Line_IMG_3869.jpg",
+          "author": "Alexander-93",
+          "license": "CC BY-SA 4.0"
+        },
+        "blur": []
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.3,
+          0.45,
+          0.5,
+          0.64
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.42,
+          0.52,
+          0.6,
+          0.95
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 1,
+        "box": [
+          0.58,
+          0.36,
+          0.74,
+          0.58
+        ],
+        "label": "테일램프"
+      }
+    ]
+  },
+  {
+    "id": "g80_rg3",
+    "model": "제네시스 G80 (RG3)",
+    "years": [
+      2020,
+      2023
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.49,
+            0.7,
+            0.57,
+            0.82
+          ]
+        ],
+        "file": "g80_rg3_0.jpg",
+        "source": {
+          "title": "File:Genesis G80 (RG3) IAA 2021 1X7A0161.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Genesis_G80_(RG3)_IAA_2021_1X7A0161.jpg",
+          "author": "Alexander Migl",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.32,
+          0.52,
+          0.49,
+          0.7
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.54,
+          0.46,
+          0.66,
+          0.62
+        ],
+        "label": "펜더 가니시"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.47,
+          0.58,
+          0.62,
+          0.93
+        ],
+        "label": "휠"
+      }
+    ]
+  },
+  {
+    "id": "model3_highland",
+    "model": "테슬라 모델 3",
+    "years": [
+      2023,
+      null
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.36,
+            0.65,
+            0.44,
+            0.77
+          ]
+        ],
+        "file": "model3_highland_0.jpg",
+        "source": {
+          "title": "File:Tesla Model 3 (2023) Autofrühling Ulm IMG 9282.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Tesla_Model_3_(2023)_Autofr%C3%BChling_Ulm_IMG_9282.jpg",
+          "author": "Alexander-93",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.42,
+          0.48,
+          0.7,
+          0.64
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.32,
+          0.52,
+          0.48,
+          0.9
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.16,
+          0.27,
+          0.38,
+          0.52
+        ],
+        "label": "사이드미러·펜더"
+      }
+    ]
+  },
+  {
+    "id": "model3_early",
+    "model": "테슬라 모델 3",
+    "years": [
+      2017,
+      2023
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.48,
+            0.66,
+            0.56,
+            0.8
+          ]
+        ],
+        "file": "model3_early_0.jpg",
+        "source": {
+          "title": "File:Алматы, Tesla Model 3 на Каримова.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B,_Tesla_Model_3_%D0%BD%D0%B0_%D0%9A%D0%B0%D1%80%D0%B8%D0%BC%D0%BE%D0%B2%D0%B0.jpg",
+          "author": "Nikolai Bulykin",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.56,
+          0.46,
+          0.72,
+          0.62
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.45,
+          0.55,
+          0.6,
+          0.88
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.33,
+          0.3,
+          0.58,
+          0.5
+        ],
+        "label": "옆창·사이드미러"
+      }
+    ]
+  },
+  {
+    "id": "porsche_992",
+    "model": "포르쉐 911 (992)",
+    "years": [
+      2019,
+      2024
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.41,
+            0.66,
+            0.5,
+            0.8
+          ],
+          [
+            0.7,
+            0.54,
+            0.76,
+            0.62
+          ]
+        ],
+        "file": "porsche_992_0.jpg",
+        "source": {
+          "title": "File:Porsche 992 Carrera S coupe IMG 5832.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Porsche_992_Carrera_S_coupe_IMG_5832.jpg",
+          "author": "Alexander Migl",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.51,
+          0.4,
+          0.67,
+          0.62
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.38,
+          0.52,
+          0.53,
+          0.93
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.58,
+          0.66,
+          0.79,
+          0.85
+        ],
+        "label": "프런트 범퍼 흡기구"
+      }
+    ]
+  },
+  {
+    "id": "golf_mk8",
+    "model": "폭스바겐 골프 (8세대)",
+    "years": [
+      2019,
+      2024
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.32,
+            0.67,
+            0.4,
+            0.8
+          ]
+        ],
+        "file": "golf_mk8_0.jpg",
+        "source": {
+          "title": "File:Volkswagen Golf VIII R 333 Limited Edition IMG 9486.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Volkswagen_Golf_VIII_R_333_Limited_Edition_IMG_9486.jpg",
+          "author": "Alexander-93",
+          "license": "CC BY-SA 4.0"
+        }
+      },
+      {
+        "file": "golf_mk8_1.jpg",
+        "source": {
+          "title": "File:Volkswagen Golf VIII R 333 Limited Edition IMG 9480.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Volkswagen_Golf_VIII_R_333_Limited_Edition_IMG_9480.jpg",
+          "author": "Alexander-93",
+          "license": "CC BY-SA 4.0"
+        },
+        "blur": []
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.4,
+          0.44,
+          0.68,
+          0.66
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.28,
+          0.55,
+          0.46,
+          0.96
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 1,
+        "box": [
+          0.27,
+          0.32,
+          0.48,
+          0.5
+        ],
+        "label": "테일램프"
+      }
+    ]
+  },
+  {
+    "id": "bmw_g20_early",
+    "model": "BMW 3시리즈 (G20)",
+    "years": [
+      2019,
+      2022
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.46,
+            0.7,
+            0.54,
+            0.84
+          ]
+        ],
+        "file": "bmw_g20_early_0.jpg",
+        "source": {
+          "title": "File:BMW 3 SERIES SEDAN (G20) China (2).jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:BMW_3_SERIES_SEDAN_(G20)_China_(2).jpg",
+          "author": "Dinkun Chen",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.49,
+          0.53,
+          0.68,
+          0.7
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.42,
+          0.58,
+          0.58,
+          0.95
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.04,
+          0.3,
+          0.3,
+          0.58
+        ],
+        "label": "뒷문·C필러"
+      }
+    ]
+  },
+  {
+    "id": "bmw_g20_lci",
+    "model": "BMW 3시리즈 (G20)",
+    "years": [
+      2022,
+      null
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.44,
+            0.7,
+            0.52,
+            0.85
+          ]
+        ],
+        "file": "bmw_g20_lci_0.jpg",
+        "source": {
+          "title": "File:BMW 3 SERIES SEDAN (G20) China (3).jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:BMW_3_SERIES_SEDAN_(G20)_China_(3).jpg",
+          "author": "Dinkun Chen",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.53,
+          0.52,
+          0.79,
+          0.68
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.4,
+          0.55,
+          0.57,
+          0.98
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.6,
+          0.74,
+          0.86,
+          0.95
+        ],
+        "label": "프런트 범퍼"
+      }
+    ]
+  },
+  {
+    "id": "mini_f56",
+    "model": "미니 쿠퍼 해치 (F56)",
+    "years": [
+      2018,
+      2024
+    ],
+    "images": [
+      {
+        "file": "mini_f56_0.jpg",
+        "source": {
+          "title": "File:2021 Mini Hatch (F56) John Cooper Works 1X7A0150.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:2021_Mini_Hatch_(F56)_John_Cooper_Works_1X7A0150.jpg",
+          "author": "Alexander Migl",
+          "license": "CC BY-SA 4.0"
+        },
+        "blur": []
+      },
+      {
+        "blur": [
+          [
+            0.36,
+            0.68,
+            0.45,
+            0.82
+          ]
+        ],
+        "file": "mini_f56_1.jpg",
+        "source": {
+          "title": "File:Алматы, Mini John Cooper Works F56 на Ауэзова-Тимирязева.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B,_Mini_John_Cooper_Works_F56_%D0%BD%D0%B0_%D0%90%D1%83%D1%8D%D0%B7%D0%BE%D0%B2%D0%B0-%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0.jpg",
+          "author": "Nikolai Bulykin",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.57,
+          0.4,
+          0.71,
+          0.62
+        ],
+        "label": "테일램프"
+      },
+      {
+        "img": 1,
+        "box": [
+          0.48,
+          0.35,
+          0.66,
+          0.57
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 1,
+        "box": [
+          0.32,
+          0.56,
+          0.5,
+          0.95
+        ],
+        "label": "휠"
+      }
+    ]
+  },
+  {
+    "id": "mustang_s550",
+    "model": "포드 머스탱 (6세대 S550)",
+    "years": [
+      2015,
+      2017
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.66,
+            0.58,
+            0.75,
+            0.71
+          ]
+        ],
+        "file": "mustang_s550_0.jpg",
+        "source": {
+          "title": "File:Racing Stripes, Ford Mustang Sixth generation, convertible, pic.aaa Photography by David Adam Kess.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Racing_Stripes,_Ford_Mustang_Sixth_generation,_convertible,_pic.aaa_Photography_by_David_Adam_Kess.jpg",
+          "author": "David Adam Kess",
+          "license": "CC BY-SA 4.0"
+        }
+      },
+      {
+        "blur": [
+          [
+            0.35,
+            0.6,
+            0.43,
+            0.72
+          ]
+        ],
+        "file": "mustang_s550_1.jpg",
+        "source": {
+          "title": "File:Ford GT Mustang Bamberg-20210129-RM-153114.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Ford_GT_Mustang_Bamberg-20210129-RM-153114.jpg",
+          "author": "Ermell",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.14,
+          0.34,
+          0.64,
+          0.62
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.56,
+          0.42,
+          0.86,
+          0.86
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 1,
+        "box": [
+          0.45,
+          0.3,
+          0.62,
+          0.65
+        ],
+        "label": "펜더·도어"
+      }
+    ]
+  },
+  {
+    "id": "gclass_new",
+    "model": "메르세데스-벤츠 G클래스 (W463)",
+    "years": [
+      2018,
+      null
+    ],
+    "images": [
+      {
+        "blur": [
+          [
+            0.48,
+            0.7,
+            0.56,
+            0.86
+          ]
+        ],
+        "file": "gclass_new_0.jpg",
+        "source": {
+          "title": "File:Mercedes-Benz G 350d Genf 2019 1Y7A5114.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_G_350d_Genf_2019_1Y7A5114.jpg",
+          "author": "Alexander Migl",
+          "license": "CC BY-SA 4.0"
+        }
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.68,
+          0.44,
+          0.83,
+          0.64
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.45,
+          0.57,
+          0.62,
+          0.95
+        ],
+        "label": "휠"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.06,
+          0.16,
+          0.4,
+          0.42
+        ],
+        "label": "옆창·도어"
+      }
+    ]
+  },
+  {
+    "id": "gclass_old",
+    "model": "메르세데스-벤츠 G클래스 (W463)",
+    "years": [
+      1990,
+      2018
+    ],
+    "images": [
+      {
+        "file": "gclass_old_0.jpg",
+        "source": {
+          "title": "File:MERCEDES-BENZ G-CLASS (W463) China.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:MERCEDES-BENZ_G-CLASS_(W463)_China.jpg",
+          "author": "Dinkun Chen",
+          "license": "CC BY-SA 4.0"
+        },
+        "blur": []
+      }
+    ],
+    "clues": [
+      {
+        "img": 0,
+        "box": [
+          0.29,
+          0.52,
+          0.42,
+          0.66
+        ],
+        "label": "헤드램프"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.54,
+          0.5,
+          0.66,
+          0.66
+        ],
+        "label": "헤드램프·방향지시등"
+      },
+      {
+        "img": 0,
+        "box": [
+          0.56,
+          0.58,
+          0.79,
+          0.86
+        ],
+        "label": "휠·펜더"
+      }
+    ]
+  }
+]
