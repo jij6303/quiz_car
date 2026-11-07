@@ -14,7 +14,7 @@ import os
 
 from flask import Flask, abort, jsonify, render_template, request, session
 
-from quiz.game import grade, load_cars, new_question
+from quiz.game import GAME_LENGTH, grade, history_entry, load_cars, mark, new_question, summary
 from quiz.imaging import clue_jpeg, photo_jpeg
 
 app = Flask(__name__)
@@ -39,19 +39,54 @@ def index():
     return render_template("index.html")
 
 
-@app.post("/api/new")
-def api_new():
-    question, seen = new_question(CARS, session.get("seen", []))
-    session.update(qid=question["id"], seen=seen, revealed=1, answered=False, round=session.get("round", 0) + 1)
-    car = CARS[question["id"]]
-    return jsonify({
-        "round": session["round"],
-        "total": len(CARS),
-        "clues": _clue_info(car, 1),
+def _question_payload(car, question):
+    history = session.get("history", [])
+    return {
+        "round": len(history) + 1,
+        "total": GAME_LENGTH,
+        "score": sum(h["points"] for h in history),
+        "marks": [mark(h) for h in history],
+        "clues": _clue_info(car, session.get("revealed", 1)),
         "clue_count": len(car["clues"]),
         "models": question["models"],
         "years": question["years"],
-    })
+    }
+
+
+@app.post("/api/game")
+def api_game():
+    """새 판 시작 (이전 판들에서 본 차는 seen에 남겨 되도록 겹치지 않게)"""
+    session.update(history=[], qid=None, question=None, answered=False)
+    return jsonify({"ok": True, "total": GAME_LENGTH})
+
+
+@app.post("/api/new")
+def api_new():
+    history = session.get("history", [])
+    if len(history) >= GAME_LENGTH:
+        return jsonify({"error": "game_over"}), 409
+
+    # 답하지 않은 문제가 있으면 그대로 이어서 (새로고침으로 문제 바꾸기 방지)
+    if session.get("qid") in CARS and not session.get("answered") and session.get("question"):
+        return jsonify(_question_payload(CARS[session["qid"]], session["question"]))
+
+    # 이번 판에서 나온 차는 다시 나오지 않게
+    played = {h["id"] for h in history}
+    seen = [cid for cid in session.get("seen", []) if cid not in played] + list(played)
+    question, seen = new_question(CARS, [cid for cid in seen if cid in CARS])
+    while question["id"] in played:  # seen이 한 바퀴 돌아 초기화된 경우
+        question, seen = new_question(CARS, seen)
+
+    session.update(qid=question["id"], question=question, seen=seen, revealed=1, answered=False)
+    return jsonify(_question_payload(CARS[question["id"]], question))
+
+
+@app.get("/api/summary")
+def api_summary():
+    history = session.get("history", [])
+    if not history:
+        abort(404)
+    return jsonify(summary(history))
 
 
 @app.post("/api/hint")
@@ -106,10 +141,17 @@ def api_answer():
     if session.get("answered"):
         abort(409, "이미 답한 문제입니다")
     body = request.get_json(silent=True) or {}
-    result = grade(car, body.get("model"), body.get("year"), session.get("revealed", 1))
-    session["answered"] = True
-    session["score"] = session.get("score", 0) + result["points"]
-    result["score"] = session["score"]
+    clues_used = session.get("revealed", 1)
+    result = grade(car, body.get("model"), body.get("year"), clues_used)
+
+    history = session.get("history", []) + [history_entry(car, result, body.get("model"), body.get("year"), clues_used)]
+    session.update(answered=True, history=history)
+
+    result["round"] = len(history)
+    result["total"] = GAME_LENGTH
+    result["score"] = sum(h["points"] for h in history)
+    result["marks"] = [mark(h) for h in history]
+    result["game_over"] = len(history) >= GAME_LENGTH
     result["clues"] = _clue_info(car, len(car["clues"]))
     result["photos"] = _photo_info(car)
     return jsonify(result)

@@ -86,3 +86,62 @@ def grade(car, model, year, clues_used):
         "points": score(model_ok, year_ok, clues_used),
         "credits": [img["source"] for img in car["images"]],
     }
+
+
+# ── 한 판(10문제) ─────────────────────────────────────────
+GAME_LENGTH = 10
+MAX_POINTS = MODEL_POINTS + YEAR_POINTS
+
+RANKS = [  # (최소 점수, 등급, 한 줄 평)
+    (1300, "카 마스터", "로고 없이도 차가 보이는 경지"),
+    (1000, "자동차 박사", "램프 하나로 세대까지 구분하는 눈"),
+    (700, "좀 아는 사람", "주차장에서 차 이름 맞히기 가능"),
+    (400, "초보 운전", "익숙한 차는 알아보는 정도"),
+    (0, "뚜벅이", "다음 판엔 단서를 아껴 보세요"),
+]
+
+MARKS = {2: "🟩", 1: "🟨", 0: "⬛"}  # 모델·연식 둘 다 / 하나 / 둘 다 틀림
+
+
+def rank(score):
+    for minimum, name, comment in RANKS:
+        if score >= minimum:
+            return {"name": name, "comment": comment}
+    raise ValueError(score)
+
+
+def history_entry(car, result, picked_model, picked_year, clues_used):
+    return {
+        "id": car["id"],
+        "model": result["answer_model"],
+        "year": result["answer_year"],
+        "picked_model": picked_model,
+        "picked_year": picked_year,
+        "model_ok": result["model_ok"],
+        "year_ok": result["year_ok"],
+        "clues": clues_used,
+        "points": result["points"],
+    }
+
+
+def mark(entry):
+    return MARKS[entry["model_ok"] + entry["year_ok"]]
+
+
+def summary(history):
+    total = sum(h["points"] for h in history)
+    marks = "".join(mark(h) for h in history)
+    r = rank(total)
+    return {
+        "score": total,
+        "max_score": MAX_POINTS * GAME_LENGTH,
+        "played": len(history),
+        "model_correct": sum(h["model_ok"] for h in history),
+        "year_correct": sum(h["year_ok"] for h in history),
+        "perfect": sum(h["model_ok"] and h["year_ok"] for h in history),
+        "avg_clues": round(sum(h["clues"] for h in history) / len(history), 1) if history else 0,
+        "rank": r,
+        "marks": marks,
+        "share": f"이 차는 뭘까? {total}점 · {r['name']}\n{marks}",
+        "rows": history,
+    }

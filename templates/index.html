@@ -13,9 +13,10 @@
       <span>문제 <b id="round">-</b></span>
       <span>점수 <b id="score">0</b></span>
     </div>
+    <ol id="progress" class="progress" aria-label="이번 판 진행도"></ol>
   </header>
 
-  <main class="card">
+  <main id="game" class="card">
     <section class="viewer">
       <div class="frame">
         <img id="clue-img" alt="자동차 부분 단서 사진">
@@ -49,6 +50,32 @@
         </figcaption>
       </figure>
       <button id="next-btn" class="primary">다음 문제</button>
+    </section>
+  </main>
+
+  <main id="summary" class="card" hidden>
+    <section class="summary-card">
+      <p class="summary-eyebrow">10문제 결과</p>
+      <h2 id="sum-rank" class="summary-rank"></h2>
+      <p id="sum-comment" class="summary-comment"></p>
+      <p class="summary-score"><b id="sum-score">0</b><span id="sum-max"></span></p>
+      <p id="sum-marks" class="summary-marks" aria-label="문제별 결과"></p>
+      <dl class="summary-stats">
+        <div><dt>모델 정답</dt><dd id="sum-model"></dd></div>
+        <div><dt>연식 정답</dt><dd id="sum-year"></dd></div>
+        <div><dt>둘 다 정답</dt><dd id="sum-perfect"></dd></div>
+        <div><dt>평균 단서</dt><dd id="sum-clues"></dd></div>
+      </dl>
+      <div class="summary-actions">
+        <button id="copy-btn" class="ghost">결과 복사</button>
+        <button id="again-btn" class="primary">다시 하기</button>
+      </div>
+      <p id="copy-status" class="copy-status" aria-live="polite"></p>
+    </section>
+
+    <section class="summary-rows">
+      <h2>문제별 결과</h2>
+      <ol id="sum-rows"></ol>
     </section>
   </main>
 
