@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>이 차는 뭘까?</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="top">
+    <h1>이 차는 뭘까?</h1>
+    <div class="stats">
+      <span>문제 <b id="round">-</b></span>
+      <span>점수 <b id="score">0</b></span>
+    </div>
+  </header>
+
+  <main class="card">
+    <section class="viewer">
+      <div class="frame">
+        <img id="clue-img" alt="자동차 부분 단서 사진">
+        <span id="clue-label" class="clue-label"></span>
+      </div>
+      <div class="clue-bar">
+        <div id="clue-tabs" class="clue-tabs"></div>
+        <button id="hint-btn" class="ghost">단서 하나 더 보기 <small>-30%</small></button>
+      </div>
+    </section>
+
+    <section class="answers">
+      <h2>모델명</h2>
+      <div id="model-choices" class="choices"></div>
+      <h2>연식 (세대)</h2>
+      <div id="year-choices" class="choices"></div>
+      <button id="submit-btn" class="primary" disabled>정답 확인</button>
+    </section>
+
+    <section id="result" class="result" hidden>
+      <p id="result-title" class="result-title"></p>
+      <p class="answer-line">정답: <b id="answer-model"></b> · <b id="answer-year"></b></p>
+      <button id="next-btn" class="primary">다음 문제</button>
+      <details class="credits">
+        <summary>사진 출처</summary>
+        <ul id="credit-list"></ul>
+      </details>
+    </section>
+  </main>
+
+  <footer class="foot">
+    사진: Wikimedia Commons (각 사진의 라이선스를 따름) · 브랜드 로고는 잘라내거나 블러 처리했어요
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
