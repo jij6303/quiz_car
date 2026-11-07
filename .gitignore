@@ -1,0 +1,6 @@
+/github_bot.json
+.idea/
+__pycache__/
+*.pyc
+*.pem
+.venv/
