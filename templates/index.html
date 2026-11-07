@@ -38,16 +38,22 @@
     <section id="result" class="result" hidden>
       <p id="result-title" class="result-title"></p>
       <p class="answer-line">정답: <b id="answer-model"></b> · <b id="answer-year"></b></p>
+      <figure class="reveal">
+        <div class="reveal-frame">
+          <img id="photo-img" alt="정답 차량 전체 사진">
+          <div id="photo-boxes" class="photo-boxes"></div>
+        </div>
+        <figcaption>
+          <div id="photo-tabs" class="photo-tabs"></div>
+          <span id="photo-credit" class="photo-credit"></span>
+        </figcaption>
+      </figure>
       <button id="next-btn" class="primary">다음 문제</button>
-      <details class="credits">
-        <summary>사진 출처</summary>
-        <ul id="credit-list"></ul>
-      </details>
     </section>
   </main>
 
   <footer class="foot">
-    사진: Wikimedia Commons (각 사진의 라이선스를 따름) · 브랜드 로고는 잘라내거나 블러 처리했어요
+    사진: Wikimedia Commons (각 사진의 라이선스를 따름) · 문제에서는 브랜드 로고를 잘라내거나 블러 처리하고, 정답 확인 후 원본을 보여줘요
   </footer>
 
   <script src="{{ url_for('static', filename='app.js') }}"></script>

@@ -60,6 +60,49 @@ function markChoices(containerId, answer) {
   });
 }
 
+// 정답 공개: 원본 전체 사진 + 단서 영역 표시
+function showPhoto(i) {
+  const p = state.photos[i];
+  $("photo-img").src = `/api/photo/${i}?v=${state.nonce}`;
+
+  const boxes = $("photo-boxes");
+  boxes.innerHTML = "";
+  p.clues.forEach((c) => {
+    const [x0, y0, x1, y1] = c.box;
+    const s = document.createElement("span");
+    s.dataset.n = c.number;
+    s.title = `단서 ${c.number} · ${c.label}`;
+    Object.assign(s.style, {
+      left: `${x0 * 100}%`, top: `${y0 * 100}%`,
+      width: `${(x1 - x0) * 100}%`, height: `${(y1 - y0) * 100}%`,
+    });
+    boxes.appendChild(s);
+  });
+
+  const credit = $("photo-credit");
+  credit.innerHTML = "";
+  const a = document.createElement("a");
+  a.href = p.source.page;
+  a.target = "_blank";
+  a.rel = "noopener";
+  a.textContent = p.source.author || "작성자 미상";
+  credit.append("사진: ", a, ` · ${p.source.license}`);
+
+  $("photo-tabs").querySelectorAll("button").forEach((b, j) => b.classList.toggle("active", j === i));
+}
+
+function renderPhotoTabs() {
+  const tabs = $("photo-tabs");
+  tabs.innerHTML = "";
+  if (state.photos.length < 2) return;
+  state.photos.forEach((_, i) => {
+    const b = document.createElement("button");
+    b.textContent = `사진 ${i + 1}`;
+    b.onclick = () => showPhoto(i);
+    tabs.appendChild(b);
+  });
+}
+
 async function newQuestion() {
   const q = await api("/api/new");
   Object.assign(state, {
@@ -97,18 +140,9 @@ $("submit-btn").onclick = async () => {
   $("answer-year").textContent = r.answer_year;
   $("score").textContent = r.score;
 
-  const list = $("credit-list");
-  list.innerHTML = "";
-  r.credits.forEach((c) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = c.page;
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.textContent = c.title.replace(/^File:/, "");
-    li.append(a, ` — ${c.author || "작성자 미상"}, ${c.license}`);
-    list.appendChild(li);
-  });
+  state.photos = r.photos;
+  renderPhotoTabs();
+  showPhoto(0);
 
   $("submit-btn").hidden = true;
   $("result").hidden = false;

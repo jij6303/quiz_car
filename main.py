@@ -8,13 +8,14 @@
 
 정답(차 id)은 브라우저로 보내지 않고 서버 세션에만 둔다.
 단서 이미지도 서버에서 잘라 보내므로 원본 사진(로고 포함)은 노출되지 않는다.
+원본 사진은 정답 확인 후에만 /api/photo/<n> 으로 받을 수 있다.
 """
 import os
 
 from flask import Flask, abort, jsonify, render_template, request, session
 
 from quiz.game import grade, load_cars, new_question
-from quiz.imaging import clue_jpeg
+from quiz.imaging import clue_jpeg, photo_jpeg
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("QUIZ_SECRET_KEY") or os.urandom(24)
@@ -74,6 +75,31 @@ def api_clue(n):
     return data, 200, {"Content-Type": "image/jpeg", "Cache-Control": "no-store"}
 
 
+@app.get("/api/photo/<int:n>")
+def api_photo(n):
+    """원본 전체 사진 — 정답 확인 후에만 볼 수 있다"""
+    car = _current()
+    if not session.get("answered"):
+        abort(403)
+    if not 0 <= n < len(car["images"]):
+        abort(404)
+    data = photo_jpeg(car["images"][n]["file"])
+    return data, 200, {"Content-Type": "image/jpeg", "Cache-Control": "no-store"}
+
+
+def _photo_info(car):
+    """원본 사진마다 출처와, 그 사진에서 잘라낸 단서 영역 목록"""
+    photos = []
+    for i, image in enumerate(car["images"]):
+        photos.append({
+            "index": i,
+            "source": image["source"],
+            "clues": [{"number": n + 1, "label": c["label"], "box": c["box"]}
+                      for n, c in enumerate(car["clues"]) if c["img"] == i],
+        })
+    return photos
+
+
 @app.post("/api/answer")
 def api_answer():
     car = _current()
@@ -85,6 +111,7 @@ def api_answer():
     session["score"] = session.get("score", 0) + result["points"]
     result["score"] = session["score"]
     result["clues"] = _clue_info(car, len(car["clues"]))
+    result["photos"] = _photo_info(car)
     return jsonify(result)
 
 

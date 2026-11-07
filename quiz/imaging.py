@@ -37,6 +37,19 @@ def render_clue(image_meta, box):
     return clue
 
 
+PHOTO_MAX_SIDE = 1280
+
+
+@lru_cache(maxsize=64)
+def photo_jpeg(file):
+    """정답 공개용 원본 사진 (블러 없음, 로고 포함)"""
+    img = Image.open(IMAGE_DIR / file).convert("RGB")
+    img.thumbnail((PHOTO_MAX_SIDE, PHOTO_MAX_SIDE))
+    buf = io.BytesIO()
+    img.save(buf, "JPEG", quality=85)
+    return buf.getvalue()
+
+
 @lru_cache(maxsize=128)
 def clue_jpeg(file, blur, box):
     """캐시 가능한 형태(튜플)로 받아 JPEG 바이트 반환"""
